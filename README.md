@@ -109,6 +109,8 @@ end
 
 Gemmes ajoutées au **Gemfile** de Rails :
 ~~~ruby
+# Use Devise for authentication and user management
+gem 'devise'
 # jQuery is required for Bootstrap
 gem 'jquery'
 # Bootstrap for nicer layouts

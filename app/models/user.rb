@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   # 1 - N association with hosted events (events) as host
   has_many :hosted_events, class_name: 'Event', foreign_key: 'host_id'
   
