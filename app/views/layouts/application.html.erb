@@ -47,11 +47,11 @@
           <% else%>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sign up / Log In
+                Log in / Sign up
               </a>
               <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                <%= link_to 'Sign up', new_user_session_path, :class => "dropdown-item text-light" %>
-                <%= link_to 'Log in', new_user_registration_path, :class => "dropdown-item text-light" %>
+                <%= link_to 'Log in', new_user_session_path, :class => "dropdown-item text-light" %>
+                <%= link_to 'Sign up', new_user_registration_path, :class => "dropdown-item text-light" %>
               </div>
             </li>
           <% end %>
