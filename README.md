@@ -1,4 +1,4 @@
-# EVENTBRITE : DEVISONS !
+# EVENTBRITE : DEVISONS GAIEMENT !
 
 ## The Hacking Project - Bootcamp Fullstack Web
 ### Semaine 6, jour JOUR 2.
