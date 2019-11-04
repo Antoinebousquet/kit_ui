@@ -114,7 +114,7 @@ gem 'devise'
 # jQuery is required for Bootstrap
 gem 'jquery'
 # Bootstrap for nicer layouts
-gem 'bootstrap', '~>v4.0.0'
+gem 'bootstrap', '~>v4.3.1'
 ~~~
 
 ***

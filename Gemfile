@@ -33,7 +33,7 @@ gem 'devise'
 # jQuery required by bootstrap gem
 gem 'jquery-rails'
 # The Bootstrap gem
-gem 'bootstrap', '~>4.0.0'
+gem 'bootstrap', '~>4.3.1'
 
 
 # Use ActiveStorage variant
