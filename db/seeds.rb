@@ -62,11 +62,11 @@ puts ''
 puts '#' * 40
 puts 'Creating attendances'
 users_ids = User.all.ids
-Event.all.ids.each do |event_id|
+Event.all.each do |event|
   (users_ids - [event.host.id]).sample(rand(2..5)).each do |user_id|
     Attendance.create!(
       stripe_customer_id: Faker::Alphanumeric.unique.alpha(number: 10),
-      attended_event_id: event_id,
+      attended_event_id: event.id,
       guest_id: user_id
     )
     end
