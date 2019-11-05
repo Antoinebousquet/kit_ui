@@ -16,25 +16,80 @@
     </div>
     
     <div class="col-md-6">
-      
-      <div class="row">
-        <div class="col-md-12">
-          <h3><%= @event.title %></h3>
-        </div> <!-- /col-md-12 -->
-      </div><!-- /row-->
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="" data-target="#event_details" data-toggle="tab" class="nav-link active">Event details</a>
+        </li>
+        <li class="nav-item">
+            <a href="" data-target="#event_host" data-toggle="tab" class="nav-link">Event host</a>
+        </li>
+        <li class="nav-item">
+            <a href="" data-target="#event_guests" data-toggle="tab" class="nav-link">Event guests</a>
+        </li>
+        <li class="nav-item">
+            <a href="" data-target="#edit_event" data-toggle="tab" class="nav-link">Edit event</a>
+        </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="event_details">
+                  <table class='table table-borderless'>
+                    <tbody>
+                      <tr>
+                        <th><h3 class='text-secondary'>Title</h3></th>
+                        <td><p><%= @event.title %></p></td>
+                      </tr>
+                      <tr>
+                        <th><h3 class='text-secondary'>Starts</h3></th>
+                        <td><p><%= @event.start_date %></p></td>
+                      </tr>
+                      <tr>
+                        <th><h3 class='text-secondary'>Duration</h3></th>
+                        <td><p><%= @event.duration %></p></td>
+                      </tr>
+                      <tr>
+                        <th><h3 class='text-secondary'>End date</h3></th>
+                        <td><p><%= @event.start_date %></p></td>
+                      </tr>
+                      <tr>
+                        <th><h3 class='text-secondary'>Host</h3></th>
+                        <td><p><%= @event.host.display_full_name %></p></td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4 class='text-secondary'><%= @event.start_date %></h4>
-        </div> <!-- /col-md-12 -->
-      </div><!-- /row-->
-      
-      <div class="row">
-        <div class="col-md-12">
-          <h4><%= @event.description %></h4>
-        </div> <!-- /col-md-12 -->
-      </div><!-- /row-->
+                  <h2 class='text-secondary'>Description</h2>
+                  <h4><%= @event.description %></h4>
+                </div> <!-- /tab-pane -->
 
+                <div class="tab-pane" id="event_host">
+                  <table class="table table-hover table">
+                    <thead class='thead-light'>
+                      <tr>
+                        <th><h4 class='text-secondary'>Name</h4></th>
+                        <th><h4 class='text-secondary'>Email</h4></th>
+                        <th><h4 class='text-secondary'>See more...</h4></th>
+                      </tr>
+                    </thead> 
+                    <tbody>
+                      <% @event.guests.each do |guest|%>
+                        <tr>
+                          <td><h6><%= guest.display_full_name %></h6></td>
+                          <td><h6><%= guest.email %></h6></td>
+                          <td><%= link_to 'Details', guest, class: 'btn btn-sm btn-outline-info' %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div> <!-- /tab-pane -->
+
+                <div class="tab-pane" id="event_guest">
+                  <%= link_to 'Modify email and/or password', root_path, class: 'btn btn-lg btn-warning' %>
+                </div> <!-- comment /tab-pane -->
+                
+
+                <div class="tab-pane" id="edit_event">
+                  <%= link_to 'Edit personnal informations', root_path, class: 'btn btn-lg btn-warning' %>
+                </div> <!-- /tab-pane -->
 
       </div><!-- /col-md-6 -->
   </div><!-- /row -->
