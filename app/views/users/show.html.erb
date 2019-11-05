@@ -1,29 +1,85 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, @user.display_full_name %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="alert alert-dark text-center" role="alert">
+  This is your profile page. You can read about yourself - useful if you have Alzheimer's - and edit the info you gave us.
+</div>
 
-<p>
-  <strong>Encrypted password:</strong>
-  <%= @user.encrypted_password %>
-</p>
+<div class="container-fluid">
+    <div class="row my-2 border">
+        <div class="col-lg-8 order-lg-1 border border-white">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#events" data-toggle="tab" class="nav-link">Hosted events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#account_settings" data-toggle="tab" class="nav-link">Account settings</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#edit_profile" data-toggle="tab" class="nav-link">Edit profile</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="profile">
+                  <table class='table table-borderless'>
+                    <thead class='thead-light'>
+                      <tr>
+                        <th scope='col'><h2 class='text-secondary'>First name</h2></th>
+                        <th scope='col'><h2 class='text-secondary'>Last name</h2></th>
+                        <th scope='col'><h3 class='text-secondary'>Email</h3></th>
+                        <th scope='col'><h3 class='text-secondary'>Member since</h3></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><h4><%= @user.display_first_name %></h4></td>
+                        <td><h4><%= @user.display_last_name %></h4></td>
+                        <td><h4><%= @user.email %></h4></td>
+                        <td><h4><%= time_ago_in_words(@user.created_at)%></h4></td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+                  <h2 class='text-secondary'>Description</h2>
+                  <h4><%= @user.description %></h4>
+                </div> <!-- /tab-pane -->
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+                <div class="tab-pane" id="events">
+                  <table class="table table-hover table">
+                    <thead class='thead-light'>
+                      <tr>
+                        <th scope='col'><h4 class='text-secondary'>Event</h4></th>
+                        <th scope='col'><h4 class='text-secondary'>Date</h4></th>
+                        <th scope='col'><h4 class='text-secondary'>Duration</h4></th>
+                        <th scope='col'><h4 class='text-secondary'>See more...</h4></th>
+                      </tr>
+                    </thead> 
+                    <tbody>
+                      <% @user.hosted_events.each do |hosted_event|%>
+                        <tr>
+                          <td><h6><%= hosted_event.title %></h6></td>
+                          <td><h6><%= hosted_event.start_date %></h6></td>
+                          <td><h6><%= hosted_event.duration.to_s + ' minutes' %></h6></td>
+                          <td><%= link_to 'Details', hosted_event, class: 'btn btn-sm btn-outline-info' %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div> <!-- /tab-pane -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
+                <div class="tab-pane" id="account_settings">
+                  <%= link_to 'Modify email and/or password', edit_user_registration_path, class: 'btn btn-lg btn-warning' %>
+                </div> <!-- comment /tab-pane -->
+                
 
-<%= link_to 'Edit', edit_user_registration_path(@user) %> |
-<%= link_to 'Back', users_path %>
+                <div class="tab-pane" id="edit_profile">
+                  <%= link_to 'Edit personnal informations', edit_user_path(@user), class: 'btn btn-lg btn-warning' %>
+                </div> <!-- /tab-pane -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<%= link_to 'Back to homepage', events_path, class: 'btn btn-lg btn-info mx-3' %>
