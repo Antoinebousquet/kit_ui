@@ -5,6 +5,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
+    <!--Title changes depending on the view -->
     <title><%= yield(:title) %></title>
 
     <%= csrf_meta_tags %>
@@ -16,6 +17,7 @@
   
   <body class='bg-light'>
 
+  <header>
     <!-- Bootstrap navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <%= link_to 'Eventbrite v2', events_path, :class => 'navbar-brand' %>
@@ -33,6 +35,7 @@
 
         <!-- Dropdowns depending on session status -->
         <ul class="navbar-nav ml-auto">
+          <!-- if connected, profile and logout options -->
           <% if current_user %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,6 +47,7 @@
               </div>
             </li>
 
+          <!-- if not connected, login and signup options -->
           <% else%>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,15 +62,18 @@
         </ul>
       </div>
     </nav>
+  </header>
 
-
-    <!-- Displaying alerts and notices -->
-    <% if notice || alert %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-    
+  <!-- Displaying alerts and notices -->
+  <% if notice || alert %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+  
+  <!-- Getting content from the other views -->
+  <main role='main'>
     <%= yield %>
+  </main>
   
   </body>
 </html>
