@@ -27,6 +27,19 @@ class User < ApplicationRecord
 
   after_create :welcome_send
 
+  # instance methods for display
+  def display_first_name
+    first_name.capitalize
+  end
+  
+  def display_last_name
+    last_name.capitalize
+  end
+
+  def display_full_name
+    (first_name + ' ' + last_name).titleize
+  end
+
   private
 
   # all to downcase - less problems in the DB
