@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
+  include EventsHelper
+
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_host, only: [:new, :edit]
   before_action :authenticate_user!, except: [:index]
-  before_action :is_host?, only: [:edit, :update, :destroy]
+  before_action :has_access?, only: [:edit, :update, :destroy]
 
   # GET /events
   def index
@@ -61,8 +63,15 @@ class EventsController < ApplicationController
       params.require(:event).permit(:title, :start_date, :duration, :description, :price, :location, :host_id)
     end
 
+    # host sometimes useful to set before action
     def set_host
       @host = current_user
     end
 
+    def has_access?
+      unless is_host?
+        flash[:danger] = 'This is not your event. You cannot do that. You little sh*t.'
+          redirect_back(fallback_location: events_path)
+      end
+    end
 end
