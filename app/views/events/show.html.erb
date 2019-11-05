@@ -1,4 +1,49 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, @event.title %>
+
+<div class="alert alert-dark text-center" role="alert">
+  So, is this event really nice ? And more importantly, can you afford it ?
+</div>
+
+<div class="container-fluid" id="product-section">
+  <div class="row">
+    <div class="col-md-6 w-25">
+      <img
+        src="/event_image_1.jpg"
+        alt="Kodak Brownie Flash B Camera"
+        class="img-fluid"
+        
+      />
+    </div>
+    
+    <div class="col-md-6">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <h3><%= @event.title %></h3>
+        </div> <!-- /col-md-12 -->
+      </div><!-- /row-->
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class='text-secondary'><%= @event.start_date %></h4>
+        </div> <!-- /col-md-12 -->
+      </div><!-- /row-->
+      
+      <div class="row">
+        <div class="col-md-12">
+          <h4><%= @event.description %></h4>
+        </div> <!-- /col-md-12 -->
+      </div><!-- /row-->
+
+
+      </div><!-- /col-md-6 -->
+  </div><!-- /row -->
+</div><!-- /container-fluid -->
+
+
+
+
+<%= link_to 'Back to homepage', events_path, class: 'btn btn-lg btn-info mx-3' %>
 
 <p>
   <strong>Title:</strong>
