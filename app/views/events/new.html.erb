@@ -34,7 +34,9 @@
 
       <div class="field">
         <%= form.label :start_date %><br />
-        <%= form.datetime_select :start_date, { ampm: false, order: [:day, :month, :year], prompt: true } %>
+        <%= form.datetime_select :start_date, { 
+          ampm: false, order: [:day, :month, :year], 
+          prompt: true, start_year: Time.now.year, } %>
       </div>
 
       <hr/>
@@ -64,6 +66,8 @@
         <%= form.label :location %><br />
         <%= form.text_field :location %>
       </div>
+
+      <%= form.hidden_field :host_id, value: @host.id %>
 
       <hr/>
 
