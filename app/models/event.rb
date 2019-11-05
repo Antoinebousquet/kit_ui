@@ -30,6 +30,15 @@ class Event < ApplicationRecord
   :numericality => { :only_integer => true},
   :inclusion => { :in => 1..1000 }
 
+  # instance methods for display
+  def display_start_date
+    start_date.strftime("%a, %b %-d")
+  end
+
+  def display_end_date
+    (start_date + duration * 60).strftime("%A - %B %-d - %Hh%M")
+  end
+
   private
 
   # custom validator for start date
