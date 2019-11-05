@@ -1,6 +1,30 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "Events index" %>
 
-<h1>Events</h1>
+      <!-- Jumbotron -->
+      <div class="jumbotron" style="background-image: url('/jumbo_image.jpg');">
+        <div class="container">
+          <h1 class="display-3">Heavens are bright.</h1>
+          <h3>So, wanna hang out in Paradise ? Good news, we've got some nice events you can attend to ! And we swear there is no harp nor flute involved !</h3>
+        </div>
+      </div>
+
+      <!-- Actual display of events -->
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <% @events.each do |event| %>
+            <div class="col-md-4">
+              <h2><%= event.title %></h2>
+              <p><%= event.start_date %></p>
+              <p><%= event.description %></p>
+              <p><%= link_to 'View details', event, class: 'btn btn-info' %>
+            </div> <!-- /col-md-4 -->
+          <% end %>
+        </div> <!-- /row -->
+
+        <hr>
+
+      </div> <!-- /container -->
 
 <table>
   <thead>
