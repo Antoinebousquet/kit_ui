@@ -17,6 +17,8 @@ This app aims to be a simplified mockup of [Eventbrite](https://www.eventbrite.c
   * email de bienvenue à la création d'un utilisateur
   * email de notification (pour l'administrateur de l'évènement) à la création d'une réservation
 * Affichage d'une page d'accueil avec navbar
+* Affichage de la page de profil d'un utilisateur
+  * possibilité de modifier les paramètres du compte (email, mot de passe)
 
 ***
 
@@ -133,6 +135,9 @@ None yet.
 
 ## Historique des versions
 
+* version 1.43 : user account edit page
+* version 1.40 : user profile page
+* version 1.30 : refined index page
 * version 1.20 : devise views setup
 * version 1.10 : index page and navbar
 * version 1.00 : repo init
