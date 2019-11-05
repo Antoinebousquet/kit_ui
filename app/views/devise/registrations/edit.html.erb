@@ -4,7 +4,9 @@
   Here you can edit your account settings (and only yours).
 </div>
 
-<div class="container-fluid px-2 t-2">
+<hr/>
+
+<div class="container-fluid px-2 t-2 w-75">
   <h1>What do you cant to do ? You can change your :</h1>
 
   <hr/>
@@ -58,8 +60,10 @@
 
   <p><%= button_to "I want to delete my account.", registration_path(resource_name), data: { confirm: "Oh no. Please don't. Please. Pleeeaaaaaseeeeee..." }, method: :delete, class: 'btn btn-lg btn-danger' %></p>
 
-  <hr/>
-
 </div> <!-- /container-fluid -->
 
- <%= link_to 'Back to homepage', events_path, class: 'btn btn-lg btn-info mx-2' %>
+<hr/>
+
+<%= link_to 'Back to profile', @user, class: 'btn btn-lg btn-warning mx-5 px-5' %>
+<%= link_to 'Back to homepage', events_path, class: 'btn btn-lg btn-info mx-5 px-5' %>
+
