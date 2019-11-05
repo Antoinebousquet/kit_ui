@@ -9,15 +9,20 @@
       </div>
 
       <!-- Actual display of events -->
-      <div class="container">
+      <div class="container w-75">
         <!-- Example row of columns -->
         <div class="row">
           <% @events.each do |event| %>
-            <div class="col-md-4">
-              <h2><%= event.title %></h2>
-              <p><%= event.start_date %></p>
-              <p><%= event.description %></p>
-              <p><%= link_to 'View details', event, class: 'btn btn-info' %>
+            <div class="col-md-4 py-2">
+              <div class="card h-100 border-secondary">
+                <div class="card-body">
+                  <h2 class="card-title"><%= event.title %></h2>
+                  <h5 class="card-subtitle mb-2 text-danger"><%= event.display_start_date %></h5>
+                  <p class="card-text"><%= event.description %></p>
+                  <p><%= link_to 'View details', event, class: 'btn btn-info' %>
+                  <p class='text-secondary'><%= event.location %></p>
+                </div> <!-- /card-body -->
+              </div> <!-- /card -->
             </div> <!-- /col-md-4 -->
           <% end %>
         </div> <!-- /row -->
@@ -26,6 +31,7 @@
 
       </div> <!-- /container -->
 
+<!--
 <table>
   <thead>
     <tr>
@@ -39,23 +45,25 @@
     </tr>
   </thead>
 
+
   <tbody>
-    <% @events.each do |event| %>
+    <%# @events.each do |event| %>
       <tr>
-        <td><%= event.title %></td>
-        <td><%= event.start_date %></td>
-        <td><%= event.duration %></td>
-        <td><%= event.description %></td>
-        <td><%= event.price %></td>
-        <td><%= event.location %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= event.title %></td>
+        <td><%#= event.start_date %></td>
+        <td><%#= event.duration %></td>
+        <td><%#= event.description %></td>
+        <td><%#= event.location %></td>
+        <td><%#= event.price %></td>
+        <td><%#= link_to 'Show', event %></td>
+        <td><%#= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%#= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%#= link_to 'New Event', new_event_path %>
+-->
