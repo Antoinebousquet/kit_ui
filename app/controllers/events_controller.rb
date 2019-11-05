@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_host, only: [:new, :edit]
+  before_action :authenticate_user!, except: [:index]
+  before_action :is_host?, only: [:edit, :update, :destroy]
 
   # GET /events
   def index
@@ -55,6 +58,11 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :start_date, :duration, :description, :price, :location)
+      params.require(:event).permit(:title, :start_date, :duration, :description, :price, :location, :host_id)
     end
+
+    def set_host
+      @host = current_user
+    end
+
 end
