@@ -1,12 +1,12 @@
 <% content_for :title, 'New event' %>
 
 <div class="alert alert-dark text-center" role="alert">
-  Here you can create a new event that will be all yours.
+  Here you can create a new event that will be all yours. Heaven is great, right ?
 </div>
 
-<div class="container-fluid px-2 mx-5">
+<div class="container px-2 mx-5">
   <h1>How are you gonna rock the skies ?</h1>
-  <h2 class='text-danger'>REMINDER : NO HARP AND NO FLUTE !</h2>
+  <h3 class='text-danger'>REMINDER : NO HARP AND NO FLUTE !</h3>
 
   <hr/>
 
@@ -26,29 +26,51 @@
     <div class="form-group">
 
       <div class="field">
-        <%= form.label :first_name, class: 'h3' %><br />
-        <%= form.text_field :first_name %>
+        <%= form.label :title %><br />
+        <%= form.text_field :title %>
       </div>
 
       <hr/>
 
       <div class="field">
-        <%= form.label :last_name, class: 'h3' %><br />
-        <%= form.text_field :last_name %>
+        <%= form.label :start_date %><br />
+        <%= form.datetime_select :start_date, { ampm: false, order: [:day, :month, :year], prompt: true } %>
       </div>
 
       <hr/>
 
       <div class="field">
-        <%= form.label :description, class: 'h3' %><br />
-        <%= form.text_area :description, rows: 5, class: 'w-50' %>
+        <%= form.label :duration %><br />
+        <%= form.number_field :duration %>
       </div>
 
       <hr/>
 
-      <div class="actions">
-        <%= form.submit "Update my profile", class: 'btn btn-lg btn-success' %>
+      <div class="field">
+        <%= form.label :description %><br />
+        <%= form.text_area :description, rows: 5, class: 'w-50'  %>
       </div>
+
+      <hr/>
+
+      <div class="field">
+        <%= form.label :price %><br />
+        <%= form.number_field :price %>
+      </div>
+
+      <hr/>
+
+      <div class="field">
+        <%= form.label :location %><br />
+        <%= form.text_field :location %>
+      </div>
+
+      <hr/>
+
+      <div class="actions"><br />
+        <%= form.submit "Create event", class: 'btn btn-lg btn-success' %>
+      </div>
+
     </div> <!-- /form-group -->
   <% end %>
 
@@ -58,13 +80,4 @@
 
 <hr/>
 
-<%= link_to 'Back to profile', @event, class: 'btn btn-lg btn-warning mx-5 px-5' %>
 <%= link_to 'Back to homepage', events_path, class: 'btn btn-lg btn-info mx-5 px-5' %>
-
-
-
-<h1>New Event</h1>
-
-<%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>
