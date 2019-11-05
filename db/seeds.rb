@@ -28,6 +28,14 @@ puts ''
 puts '#' * 40
 puts 'Creating users'
 
+User.create!(
+  email: 'thp_test@yopmail.com',
+  password: 'thpthpthp',
+  first_name: 'THP First',
+  last_name: 'THP Last',
+  description: 'This is a fake description for the THP test user. It is useless, but will go on for a little longer in order to fill a little the user profile page. I hope it is at least as bording to read as it was to write. Well, that should do it. I hope it is long enough.'
+)
+
 10.times do
   User.create!(
     email: Faker::Internet.email,
