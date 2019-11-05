@@ -44,7 +44,7 @@ puts ''
 puts '#' * 40
 puts 'Creating events'
 
-4.times do
+20.times do
   Event.create!(
     title: Faker::Lorem.sentence(word_count: 2),
     start_date: Time.now + rand(10000..50000),
