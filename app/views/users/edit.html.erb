@@ -1,0 +1,61 @@
+<% content_for :title, 'Profile edit' %>
+
+<div class="alert alert-dark text-center" role="alert">
+  Here you can edit your profile informations (and only yours).
+</div>
+
+<div class="container-fluid px-2 mx-5">
+  <h1>What do you cant to do ? You can change your :</h1>
+
+  <hr/>
+
+  <%= form_with(model: @user, local: true) do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="form-group">
+
+      <div class="field">
+        <%= form.label :first_name, class: 'h3' %><br />
+        <%= form.text_field :first_name %>
+      </div>
+
+      <hr/>
+
+      <div class="field">
+        <%= form.label :last_name, class: 'h3' %><br />
+        <%= form.text_field :last_name %>
+      </div>
+
+      <hr/>
+
+      <div class="field">
+        <%= form.label :description, class: 'h3' %><br />
+        <%= form.text_area :description, rows: 5, class: 'w-50' %>
+      </div>
+
+      <hr/>
+
+      <div class="actions">
+        <%= form.submit "Update my profile", class: 'btn btn-lg btn-success' %>
+      </div>
+    </div> <!-- /form-group -->
+  <% end %>
+
+
+
+</div> <!-- /container-fluid -->
+
+<hr/>
+
+<%= link_to 'Back to profile', @user, class: 'btn btn-lg btn-warning mx-5 px-5' %>
+<%= link_to 'Back to homepage', events_path, class: 'btn btn-lg btn-info mx-5 px-5' %>
