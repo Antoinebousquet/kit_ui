@@ -16,14 +16,17 @@ This app aims to be a simplified mockup of [Eventbrite](https://www.eventbrite.c
 * Envoi automatique d'emails
   * email de bienvenue à la création d'un utilisateur
   * email de notification (pour l'administrateur de l'évènement) à la création d'une réservation
+* Affichage d'une page d'accueil avec navbar
 
 ***
 
 ## Installation
 ### Voir une démo de l'application en 'production'
+
 Ça se passe sur [HEROKU](https://gaael-eventbrite-v2.herokuapp.com/).
 
 ### Réaliser des tests en local
+
 Cloner le repository : 
 ~~~bash
 $ git clone https://framagit.org/gaael/thp-07-02-eventbrite-v2.git
@@ -47,6 +50,7 @@ $ rails db:seed
 ~~~
 
 #### Pour voir le front-end en local
+
 Lancer le `serveur rails`
 ~~~bash
 $ rails server
@@ -56,6 +60,7 @@ Visiter le site en local :\
 [localhost sur le port 3000](http://localhost:3000/)
 
 #### Pour voir le back-end en local
+
 Lancer la `rails console`
 ~~~bash
 $ rails console
@@ -64,6 +69,7 @@ $ rails console
 ***
 
 ## Configuration requise
+
 Version de **Rails** :
 ~~~bash
 $ rails-v
@@ -120,12 +126,15 @@ gem 'bootstrap', '~>v4.3.1'
 ***
 
 ## Testing
+
 None yet.
 
 ***
 
 ## Historique des versions
 
+* version 1.20 : devise views setup
+* version 1.10 : index page and navbar
 * version 1.00 : repo init
 
 ***
