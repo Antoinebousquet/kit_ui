@@ -29,7 +29,7 @@ puts '#' * 40
 puts 'Creating users'
 
 User.create!(
-  email: 'thp_test@yopmail.com',
+  email: 'gaael_thp@yopmail.com',
   password: 'thpthpthp',
   first_name: 'THP First',
   last_name: 'THP Last',
