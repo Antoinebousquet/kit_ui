@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :attendances
-  resources :events
-  resources :users
+  resources :events, only: [:new, :create, :edit, :index, :show]
+  resources :users, only:[:show, :edit, :update]
 end
