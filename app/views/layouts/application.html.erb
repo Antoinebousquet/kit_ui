@@ -64,12 +64,13 @@
     </nav>
   </header>
 
-  <!-- Displaying alerts and notices -->
-  <% if notice || alert %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <!-- Displaying flashes -->
+  <% flash.each do |type, message| %>
+    <div class="alert alert-<%= type %> alert-dismissible fade show text-right" role="alert">
+      <%= message %>
+    </div>
   <% end %>
-  
+
   <!-- Getting content from the other views -->
   <main role='main'>
     <%= yield %>
