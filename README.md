@@ -19,11 +19,15 @@ This app aims to be a simplified mockup of [Eventbrite](https://www.eventbrite.c
 * Affichage d'une page d'accueil avec navbar
 * Affichage de la page de profil d'un utilisateur
   * possibilité de modifier les paramètres du compte (email, mot de passe)
+  * possibilité de modifier les infos du profil (nom, prénom...)
+* Affichage des détails d'un évènement
+* Possibilité de créer un évènement
+* Restriction d'accès pour les détails d'un évènement et la modification du profil
 
 ***
 
 ## Installation
-### Voir une démo de l'application en 'production'
+### Voir une démo de l'application en 'production'
 
 Ça se passe sur [HEROKU](https://gaael-eventbrite-v2.herokuapp.com/).
 
@@ -135,6 +139,8 @@ None yet.
 
 ## Historique des versions
 
+* version 1.55 : event details page almost done
+* version 1.50 : signup completed
 * version 1.43 : user account edit page
 * version 1.40 : user profile page
 * version 1.30 : refined index page
